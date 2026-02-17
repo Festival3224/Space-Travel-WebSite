@@ -235,7 +235,7 @@ select {
 }
 
 .primary-navigation {
-    --gap: 8rem;
+    --gap: 10rem;
     --underline-gap: 2rem;
     list-style: none;
     padding: 0;
@@ -270,5 +270,25 @@ select {
 }
 
 .tab-list {
-    --gap: 3rem;
+    --gap: 2rem;
+}
+
+.dot-indicators > *{
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: 0.5em;
+    background-color: hsl( var(--clr-white)/.25 );
+}
+
+/* .dot-indicators > *:hover,
+.dot-indicators > *:focus { */
+
+.dot-indicators > *:is(:hover, :focus) {    
+    background-color: hsl( var(--clr-white)/.5 );
+}
+
+.dot-indicators > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1); 
 }
