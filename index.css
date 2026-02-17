@@ -30,16 +30,15 @@
 /*-----------------------------*/
 
 
-/* https://piccalil.li/blog/a-modern-css-reset/ */
-
 /*   Box sizing  */
-
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
+
+/*  Reset margins   */
 body,
 h1,
 h2,
@@ -62,6 +61,7 @@ p {
     font-weight: 400;
 }
 
+/* set up the body */
 body {
     font-family: var(--ff-sans-normal);
     font-size: var(--fs-400);
@@ -71,11 +71,13 @@ body {
     min-height: 100vh;
 }
 
+/* make images easier to work with */
 img, picture {
     max-width: 100%;
     display: block;
 }
 
+/* make form element easier to work with */
 input,
 button,
 textarea,
@@ -83,6 +85,7 @@ select {
     font: inherit;
 }
 
+/* remove animations for people who've turned them off */
 @media (prefers-reduced-motion: reduce) {  
   *,
   *::before,
@@ -249,7 +252,9 @@ select {
 }
 
 .underline-indicators > * {
+    cursor: pointer;
     padding: var(--underline-gap, 1rem) 0;
+    border: 0;
     border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
 }
 
@@ -258,6 +263,12 @@ select {
     border-color: hsl( var(--clr-white) / 0.5);
 }
 
-.underline-indicators > .active{
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+    color: hsl( var(--clr-white) / 1);
     border-color: hsl( var(--clr-white) / 1);
+}
+
+.tab-list {
+    --gap: 3rem;
 }
