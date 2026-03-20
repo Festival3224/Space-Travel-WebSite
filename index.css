@@ -104,6 +104,8 @@ img, picture {
     display: block;
 }
 
+[hidden] { display: none; }
+
 /* make form element easier to work with */
 input,
 button,
@@ -746,3 +748,7 @@ body {
         align-self: end;
     }
 }
+
+/* [role="tab"]:focus {
+    color: limegreen;
+} */
