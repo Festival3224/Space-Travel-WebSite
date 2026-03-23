@@ -134,12 +134,8 @@ select {
 
 .flex {
     display: flex;
-    gap: var(--gap, 1rem);
+    gap: var(--gap, 2rem);
 }
-
-/* .flex-col {
-    flex-direction: column;
-} */
 
 .flex.even-columns > * {
     width: 100%;
@@ -357,7 +353,6 @@ select {
     padding: 0;
     margin: 0;
     background: hsl( var(--clr-dark) / 0.95);
-    /* backdrop-filter: blur(1.5rem); */
 }
 
 @supports (backdrop-filter: blur(1rem)) {
@@ -512,7 +507,7 @@ select {
     padding: 0 1em;
     background-color: hsl( var(--clr-white)/.1 );
     font-family: var(--ff-serif);
-    font-size: var(--fs-400);
+    font-size: var(--fs-500);
     color: hsl(var(--clr-white));
     /*added: */
     justify-content: center;
@@ -711,15 +706,11 @@ body {
         'content'
 }
 
-/* .grid-container--technology > picture {
-    grid-area: image;
-    max-width: 60%;
-} */
-
 .grid-container--technology > picture {
   grid-area: image;
-  width: 100%;
-  max-width: 100%;
+  width: calc(100% + 2rem);   /* 1rem слева + 1rem справа */
+  max-width: none;
+  margin-inline: -1rem;
   justify-self: stretch;
 }
 
@@ -728,11 +719,6 @@ body {
   height: auto;
   object-fit: cover;
 }
-
-
-
-
-
 
 .grid-container--technology > .number-indicators {
     grid-area: tabs;
@@ -745,7 +731,6 @@ body {
 .technology-details h2 {
     opacity: .5;
 }
-
 
 
 @media (min-width: 35em) {
@@ -775,7 +760,7 @@ body {
             'image'
             'tabs'
             'content';
-        }
+    }
 }
 
 
@@ -817,7 +802,6 @@ body {
         justify-content: start;
     }
 
-
     .grid-container--crew {
         grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
         justify-items: start;
@@ -834,7 +818,6 @@ body {
     }
 
     
-
     .grid-container--technology {
         grid-template-columns:
             minmax(1rem, 1fr)
@@ -849,7 +832,8 @@ body {
             '. tabs  content image .';
         align-items: start;
         justify-items: start;
-        column-gap: clamp(1rem, 3vw, 3rem);    
+        /* column-gap: clamp(1rem, 3vw, 3rem);     */
+        column-gap: clamp(0.75rem, 1.5vw, 1.5rem); 
     }
 
     .grid-container--technology > .number-indicators {
@@ -863,19 +847,15 @@ body {
     
     .grid-container--technology > picture {
         grid-area: image;
-        justify-self: end;
-        /* align-self: center; */
         align-self: self-start;
-        max-width: 100%;
+        width: min(40rem, 100%);    /* 32rem */
+        max-width: 40rem; /* 32rem; */
+        margin: 0 -1rem 0 0;
+        grid-column: 4 / -1;
+        justify-self: end;
+        align-self: start;
     }
     
-    /* .grid-container--technology > picture {
-        grid-column: span 2;
-        align-self: self-start;
-        max-width: 100%;
-    } */
-
-    /*++++++++++*/
     .number-indicators {
         flex-direction: column;
         justify-content: start;
